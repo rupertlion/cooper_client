@@ -45,4 +45,19 @@ describe("HomePage", () => {
     it("should have calculate function", () => {
         expect(homepage.calculate).toBeTruthy();
     });
+
+    it("calculate function should call person provider doAssessment function", inject(
+        [PersonProvider],
+        person => {
+          homepage.user = { age: 25, gender: "female", distance: 2500 };
+          spyOn(person, "doAssessment").and.returnValue("Above average");
+      
+          homepage.calculate();
+      
+          expect(person.doAssessment).toHaveBeenCalled();
+          expect(person.doAssessment).toHaveBeenCalledWith(2500);
+          expect(person.age).toEqual(25);
+          expect(person.gender).toEqual("female");
+        }
+    ));
 });
