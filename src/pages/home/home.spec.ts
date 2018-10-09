@@ -7,6 +7,7 @@ import { PlatformMock, StatusBarMock, SplashScreenMock, NavControllerMock } from
 
 describe("HomePage", () => {
     let homepage;
+    let fixture;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
