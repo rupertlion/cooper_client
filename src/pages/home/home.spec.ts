@@ -6,22 +6,22 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { PlatformMock, StatusBarMock, SplashScreenMock, NavControllerMock } from "ionic-mocks";
 
 describe("HomePage", () => {
-  let homepage;
+    let homepage;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        HomePage
-      ],
-      imports: [IonicModule.forRoot(HomePage)],
-      providers: [
-        { provide: Platform, useFactory: () => PlatformMock.instance() },
-        { provide: StatusBar, useFactory: () => StatusBarMock.instance() },
-        { provide: SplashScreen, useFactory: () => SplashScreenMock.instance() },
-        { provide: NavController, useFactory: () => NavControllerMock.instance() }
-      ]
-    }).compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+        declarations: [
+            HomePage
+        ],
+        imports: [IonicModule.forRoot(HomePage)],
+        providers: [
+            { provide: Platform, useFactory: () => PlatformMock.instance() },
+            { provide: StatusBar, useFactory: () => StatusBarMock.instance() },
+            { provide: SplashScreen, useFactory: () => SplashScreenMock.instance() },
+            { provide: NavController, useFactory: () => NavControllerMock.instance() }
+        ]
+        }).compileComponents();
+    }));
 
     beforeEach(() => {
         fixture = TestBed.createComponent(HomePage);
