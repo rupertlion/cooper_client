@@ -23,25 +23,25 @@ describe("HomePage", () => {
     }).compileComponents();
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HomePage);
-    homepage = fixture.componentInstance;
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(HomePage);
+        homepage = fixture.componentInstance;
+    });
 
-  it("should create the home page", () => {
-    expect(homepage).toBeTruthy();
-    expect(homepage instanceof HomePage).toEqual(true);
-  });
+    it("should create the home page", () => {
+        expect(homepage).toBeTruthy();
+        expect(homepage instanceof HomePage).toEqual(true);
+    });
 
-  it('should have user default values', () => {
-    expect(homepage.user).toEqual({ distance: 1000, age: 20 });
-  });
+    it('should have user default values', () => {
+        expect(homepage.user).toEqual({ distance: 1000, age: 20 });
+    });
 
-  it('should have calculate function', () => {
-    spyOn(homepage, 'calculate');
+    it("should have user array", () => {
+        expect(homepage.user).toEqual({});
+    });
 
-    homepage.calculate()
-
-    expect(homepage.calculate).toHaveBeenCalled();
-  });
+    it("should have calculate function", () => {
+        expect(homepage.calculate).toBeTruthy();
+    });
 });
