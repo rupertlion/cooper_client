@@ -28,7 +28,7 @@ export class MyApp {
       apiBase: 'https://rl-cooper-api.herokuapp.com/api/v1'
     });
 
-    this.initializeApp();
+    // this.initializeApp();
 
     }
 
