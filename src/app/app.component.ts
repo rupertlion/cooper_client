@@ -23,12 +23,14 @@ export class MyApp {
     public splashScreen: SplashScreen,
     public alertCtrl: AlertController,
     private _tokenService: Angular2TokenService
-  ){
+  ) {
     this._tokenService.init({
       apiBase: 'https://rl-cooper-api.herokuapp.com/api/v1'
     });
 
     this.initializeApp();
+
+    }
 
     loginPopUp() {
       console.log('popup');
