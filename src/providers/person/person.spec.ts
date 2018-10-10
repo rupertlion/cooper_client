@@ -6,19 +6,19 @@ import { TestBed, inject } from "@angular/core/testing";
 describe("Person Component", () => {
     let personProvider, cooperProvider;
 
-  beforeEach(() => TestBed.configureTestingModule({
+    beforeEach(() => TestBed.configureTestingModule({
     providers: [PersonProvider, CooperProvider]
-  }));
+    }));
 
-  beforeEach(inject([PersonProvider, CooperProvider], (p, c) => {
+    beforeEach(inject([PersonProvider, CooperProvider], (p, c) => {
     personProvider = p;
     cooperProvider = c;
-  }));
+    }));
 
     it("should create the person provider", () => {
         expect(personProvider).toBeTruthy();
         expect(personProvider instanceof PersonProvider).toEqual(true);
-    );
+    });
 
     it('doassessment should be defined', () => {
         spyOn(personProvider, 'doAssessment');
