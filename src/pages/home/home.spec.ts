@@ -6,6 +6,9 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { PlatformMock, StatusBarMock, SplashScreenMock, NavControllerMock } from "ionic-mocks";
 import { PersonProvider } from "../../providers/person/person";
 import { CooperProvider } from "../../providers/cooper/cooper";
+import { PerformanceDataProvider } from '../../providers/performance-data/performance-data';
+import { Angular2TokenService } from 'angular2-token';
+import { ModalController } from 'ionic-angular';
 
 describe("HomePage", () => {
     let homepage;
@@ -23,7 +26,10 @@ describe("HomePage", () => {
             { provide: SplashScreen, useFactory: () => SplashScreenMock.instance() },
             { provide: NavController, useFactory: () => NavControllerMock.instance() },
             PersonProvider,
-            CooperProvider
+            CooperProvider,
+            PerformanceDataProvider,
+            Angular2TokenService,
+            ModalController
         ]
         }).compileComponents();
     }));
@@ -57,7 +63,7 @@ describe("HomePage", () => {
             spyOn(person, "doAssessment").and.returnValue("Above average");
 
             homepage.calculate();
-            
+
             expect(person.doAssessment).toHaveBeenCalled();
             expect(person.doAssessment).toHaveBeenCalledWith(2500);
             expect(person.age).toEqual(25);

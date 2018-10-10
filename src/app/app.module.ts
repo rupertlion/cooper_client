@@ -11,6 +11,10 @@ import { PersonProvider } from '../providers/person/person';
 import { CooperProvider } from '../providers/cooper/cooper';
 import { PerformanceDataProvider } from '../providers/performance-data/performance-data';
 
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { Angular2TokenService } from 'angular2-token';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -19,6 +23,8 @@ import { PerformanceDataProvider } from '../providers/performance-data/performan
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule,
+    RouterModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -31,7 +37,8 @@ import { PerformanceDataProvider } from '../providers/performance-data/performan
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PersonProvider,
     CooperProvider,
-    PerformanceDataProvider
+    PerformanceDataProvider,
+    Angular2TokenService
   ]
 })
 export class AppModule {}
