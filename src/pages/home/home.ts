@@ -17,7 +17,7 @@ export class HomePage {
       public person: PersonProvider,
       public modalCtrl: ModalController,
       private performanceData: PerformanceDataProvider, //do I need this?
-      private resultsPage: ResultsPage //do I need this?
+      // private resultsPage: ResultsPage //do I need this?
       ) {
       this.user = { distance: 1000, age: 20, gender: 'female' };
       }
