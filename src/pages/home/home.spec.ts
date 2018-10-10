@@ -1,5 +1,5 @@
 import { HomePage } from "./home";
-import { TestBed, async } from "@angular/core/testing";
+import { TestBed, async, inject } from "@angular/core/testing";
 import { IonicModule, Platform, NavController } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
@@ -39,11 +39,11 @@ describe("HomePage", () => {
     });
 
     it('should have user default values', () => {
-        expect(homepage.user).toEqual({ distance: 1000, age: 20 });
+        expect(homepage.user).toEqual({ distance: 1000, age: 20, gender: 'female' });
     });
 
     it("should have user array", () => {
-        expect(homepage.user).toEqual({ distance: 1000, age: 20 });
+        expect(homepage.user).toEqual({ distance: 1000, age: 20, gender: 'female' });
     });
 
     it("should have calculate function", () => {
