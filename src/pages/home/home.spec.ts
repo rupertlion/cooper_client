@@ -4,6 +4,8 @@ import { IonicModule, Platform, NavController } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { PlatformMock, StatusBarMock, SplashScreenMock, NavControllerMock } from "ionic-mocks";
+import { PersonProvider } from "../../providers/person/person";
+import { CooperProvider } from "../../providers/cooper/cooper";
 
 describe("HomePage", () => {
     let homepage;
@@ -19,7 +21,9 @@ describe("HomePage", () => {
             { provide: Platform, useFactory: () => PlatformMock.instance() },
             { provide: StatusBar, useFactory: () => StatusBarMock.instance() },
             { provide: SplashScreen, useFactory: () => SplashScreenMock.instance() },
-            { provide: NavController, useFactory: () => NavControllerMock.instance() }
+            { provide: NavController, useFactory: () => NavControllerMock.instance() },
+            PersonProvider,
+            CooperProvider
         ]
         }).compileComponents();
     }));
