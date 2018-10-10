@@ -57,7 +57,7 @@ describe("AppComponent", () => {
       c => {
         expect(c.request.getBody()).toEqual(JSON.stringify(signInData));
         expect(c.request.method).toEqual(RequestMethod.Post);
-        expect(c.request.url).toEqual('https://rl-cooper-api.herokuapp.com/api/v1/auth/sign_in');
+        expect(c.request.url).toEqual('https://rjl-cooper-api.herokuapp.com/api/v1/auth/sign_in');
       }
     );
 
@@ -69,7 +69,7 @@ describe("AppComponent", () => {
     mockBackend.connections.subscribe(
       c => {
         expect(c.request.method).toEqual(RequestMethod.Delete);
-        expect(c.request.url).toEqual('https://rl-cooper-api.herokuapp.com/api/v1/auth/sign_out');
+        expect(c.request.url).toEqual('https://rjl-cooper-api.herokuapp.com/api/v1/auth/sign_out');
       }
     );
 
