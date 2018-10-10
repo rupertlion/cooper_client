@@ -4,10 +4,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import { Angular2TokenService } from '../../node_modules/angular2-token';
 
-@Component({
-  templateUrl: 'app.html'
-})
+@Component(
+  public platform: Platform,
+  public statusBar: StatusBar,
+  public splashScreen: SplashScreen,
+  private _tokenService: Angular2TokenService
+ ){
+    this._tokenService.init({
+      apiBase: 'https://your-cooper-api.herokuapp.com/api/v1'
+    });
+
+    this.initializeApp();
+  }
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
