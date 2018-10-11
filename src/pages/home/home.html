@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
@@ -32,7 +32,7 @@
     </ion-list>
 
     <button block ion-button (click)="calculate(user)">Calculate</button>
-    <button block ion-button (click)="showResults()">All Results</button>
+    <button block ion-button color="awesome" (click)="showResults()">All Results</button>
 
     <ion-card *ngIf="person?.assessmentMessage">
         <ion-card-header>
