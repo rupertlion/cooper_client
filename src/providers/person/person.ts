@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { CooperProvider } from '../cooper/cooper';
 
 @Injectable()
 export class PersonProvider {
-public gender: string;
-public age: number;
-public assessmentMessage: string;
+  public gender: string;
+  public age: number;
+  public assessmentMessage: string;
 
-    constructor(private cooper: CooperProvider) {}
+  constructor(private cooper: CooperProvider) {}
 
-    doAssessment(distance: number): void {
-        this.assessmentMessage = this.cooper.assess(this, distance);
-    }
-
+  doAssessment(distance: number): void {
+    this.assessmentMessage = this.cooper.assess(this, distance);
+  }
 }
