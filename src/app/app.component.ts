@@ -26,6 +26,7 @@ export class MyApp {
   ) {
     this._tokenService.init({
       apiBase: 'https://rjl-cooper-api.herokuapp.com/api/v1'
+      // apiBase: 'https://localhost:3000/api/v1'
     });
 
     this.initializeApp();

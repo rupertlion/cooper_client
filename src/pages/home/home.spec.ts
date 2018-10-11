@@ -9,6 +9,8 @@ import { CooperProvider } from "../../providers/cooper/cooper";
 import { PerformanceDataProvider } from '../../providers/performance-data/performance-data';
 import { Angular2TokenService } from 'angular2-token';
 import { ModalController } from 'ionic-angular';
+import { MockBackend } from '@angular/http/testing';
+import { Http, BaseRequestOptions, RequestMethod } from '@angular/http'
 
 describe("HomePage", () => {
     let homepage;
@@ -29,8 +31,17 @@ describe("HomePage", () => {
             CooperProvider,
             PerformanceDataProvider,
             Angular2TokenService,
-            ModalController
-        ]
+            ModalController,
+            BaseRequestOptions,
+            MockBackend,
+            {
+              provide: Http,
+              useFactory: (backend, defaultOptions) => {
+                return new Http(backend, defaultOptions)
+              },
+              deps: [MockBackend, BaseRequestOptions]
+            },
+            ]
         }).compileComponents();
     }));
 
