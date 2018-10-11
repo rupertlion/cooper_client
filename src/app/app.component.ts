@@ -28,7 +28,19 @@ export class MyApp {
       apiBase: 'https://rjl-cooper-api.herokuapp.com/api/v1'
     });
 
-    // this.initializeApp();
+    this.initializeApp();
+
+    this.pages = [
+      { title: 'Home', component: HomePage },
+    ];
+
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
 
     }
 
@@ -65,6 +77,87 @@ export class MyApp {
       confirm.present();
     }
   
+    signUpPopUp() {
+      console.log('popup');
+      let confirm = this.alertCtrl.create({
+        title: 'Sign up',
+        inputs: [
+          {
+            name: 'email',
+            placeholder: 'email'
+          },
+          {
+            name: 'password',
+            placeholder: 'password',
+            type: 'password'
+          },
+          {
+            name: 'password_confirmation',
+            placeholder: 'password confirmation',
+            type: 'password'
+          }
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            handler: data => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Sign Up',
+            handler: data => {
+              this.signUp(data);
+            }
+          }
+        ]
+      });
+      confirm.present();
+    }
+  
+    updatePopUp() {
+      console.log('popup');
+      let confirm = this.alertCtrl.create({
+        title: 'Update',
+        inputs: [
+          {
+            name: 'email',
+            placeholder: 'email'
+          },
+          {
+            name: 'password',
+            placeholder: 'New password',
+            type: 'password'
+          },
+          {
+            name: 'password_confirmation',
+            placeholder: 'New password confirmation',
+            type: 'password'
+          },
+          {
+            name: 'password_current',
+            placeholder: 'Current Password',
+            type: 'password'
+          }
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            handler: data => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Update',
+            handler: data => {
+              this.updateCreds(data);
+            }
+          }
+        ]
+      });
+      confirm.present();
+    }
+
     login(credentials) {
       this._tokenService
         .signIn(credentials)
@@ -74,10 +167,42 @@ export class MyApp {
         );
     }
   
+    signUp(credentials) {
+      console.log(credentials);
+      this._tokenService
+        .registerAccount(credentials)
+        .subscribe(
+          res => (this.currentUser = res.json().data),
+          err => console.error('error')
+        );
+    }
+  
+    deleteAcc() {
+      this._tokenService
+        .deleteAccount()
+        .subscribe(res => console.log(res), err => console.error('error'));
+      this.currentUser = undefined;
+    }
+  
+    updateCreds(credentials) {
+      console.log(credentials)
+      this._tokenService
+        .updatePassword(credentials)
+        .subscribe(
+          res => (this.currentUser = res.json().data),
+          err => console.error('error')
+        );
+    }
+
     logout() {
       this._tokenService
         .signOut()
         .subscribe(res => console.log(res), err => console.error('error'));
       this.currentUser = undefined;
     }
+
+    openPage(page) {
+      this.nav.setRoot(page.component);
+    }
+
   }
