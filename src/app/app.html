@@ -6,22 +6,28 @@
   </ion-header>
 
   <ion-content>
-    <button ion-item (click)="loginPopUp()" *ngIf="!currentUser">
+    <button ion-item (click)="loginPopUp()" *ngIf="!currentUser" icon-start>
+      <ion-icon name="log-in"></ion-icon>
       Login
     </button>
-    <button ion-item (click)="signUpPopUp()" *ngIf="!currentUser">
+    <button ion-item (click)="signUpPopUp()" *ngIf="!currentUser" icon-start>
+      <ion-icon name="key"></ion-icon>
       Sign Up
     </button>
-    <button ion-item (click)="logout()" *ngIf="currentUser">
+    <button ion-item (click)="logout()" *ngIf="currentUser" icon-start>
+      <ion-icon name="log-out"></ion-icon>
       Logout {{currentUser.email}}
     </button>
-    <button ion-item (click)="updatePopUp()" *ngIf="currentUser">
+    <button ion-item (click)="updatePopUp()" *ngIf="currentUser" icon-start>
+      <ion-icon name="construct"></ion-icon>
       Update Account {{currentUser.email}}
     </button>
-    <button ion-item (click)="deleteAcc()" *ngIf="currentUser">
+    <button ion-item (click)="deleteAcc()" *ngIf="currentUser" icon-start>
+      <ion-icon name="logo-freebsd-devil"></ion-icon>
       Delete Account {{currentUser.email}}
     </button>
-    <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+    <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" icon-start>
+      <ion-icon name="home"></ion-icon>
       {{p.title}}
     </button>
   </ion-content>

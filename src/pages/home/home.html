@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+  <ion-navbar color="primary">
+    <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
@@ -9,40 +9,40 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item>
-            <ion-label floating>Distance</ion-label>
+        <ion-item color="light">
+            <ion-label floating color="primary">Distance</ion-label>
             <ion-input type="number" [(ngModel)]="user.distance"></ion-input>
         </ion-item>
-        <ion-item>
-            <ion-label>Gender</ion-label>
-            <ion-select [(ngModel)]="user.gender">
+        <ion-item color="light">
+            <ion-label color="primary">Gender</ion-label>
+            <ion-select [(ngModel)]="user.gender" color="primary">
                 <ion-option value="female">Female</ion-option>
                 <ion-option value="male">Male</ion-option>
             </ion-select>
         </ion-item>
-        <ion-item>
-            <ion-label>Age:
+        <ion-item color="light">
+            <ion-label color="primary">Age:
                 <ion-badge *ngIf="user.age"> {{user.age}}</ion-badge>
             </ion-label>
             <ion-range min="10" max="120" [(ngModel)]="user.age" >
-                <ion-label range-left>10</ion-label>
-                <ion-label range-right>120</ion-label>
+                <ion-label range-left color="primary">10</ion-label>
+                <ion-label range-right color="primary">120</ion-label>
             </ion-range>
         </ion-item>
     </ion-list>
 
     <button block ion-button (click)="calculate(user)">Calculate</button>
-    <button block ion-button (click)="showResults()">All Results</button>
+    <button block ion-button color="secondary" (click)="showResults()">All Results</button>
 
     <ion-card *ngIf="person?.assessmentMessage">
         <ion-card-header>
             Cooper Test Results
         </ion-card-header>
-        <ion-card-content>
+        <ion-card-content color="secondary">
             Gender: {{person?.gender}}, Age: {{person?.age}} <br/> Result: {{person?.assessmentMessage}}
         </ion-card-content>
     </ion-card>
 
-    <button block ion-button (click)="saveResults()">Save Results</button>
+    <button block ion-button color="secondary" (click)="saveResults()">Save Results</button>
 
 </ion-content>
