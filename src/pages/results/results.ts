@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { PerformanceDataProvider } from '../../providers/performance-data/performance-data';
-import { getLocaleNumberSymbol } from '../../../node_modules/@angular/common';
 
 @Component({
   selector: 'page-results',
