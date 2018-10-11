@@ -16,6 +16,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { Angular2TokenService } from 'angular2-token';
 
+import { ChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -26,7 +28,8 @@ import { Angular2TokenService } from 'angular2-token';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    RouterModule
+    RouterModule,
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
