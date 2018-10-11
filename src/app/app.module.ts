@@ -31,7 +31,8 @@ import { Angular2TokenService } from 'angular2-token';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ResultsPage
   ],
   providers: [
     StatusBar,
