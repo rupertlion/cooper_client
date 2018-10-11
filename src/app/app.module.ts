@@ -4,32 +4,44 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ResultsPage } from '../pages/results/results';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PersonProvider } from '../providers/person/person';
 import { CooperProvider } from '../providers/cooper/cooper';
+import { PerformanceDataProvider } from '../providers/performance-data/performance-data';
+
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { Angular2TokenService } from 'angular2-token';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ResultsPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule,
+    RouterModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ResultsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PersonProvider,
-    CooperProvider
+    CooperProvider,
+    PerformanceDataProvider,
+    Angular2TokenService
   ]
 })
 export class AppModule {}

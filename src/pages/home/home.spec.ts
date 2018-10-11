@@ -6,6 +6,11 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { PlatformMock, StatusBarMock, SplashScreenMock, NavControllerMock } from "ionic-mocks";
 import { PersonProvider } from "../../providers/person/person";
 import { CooperProvider } from "../../providers/cooper/cooper";
+import { PerformanceDataProvider } from '../../providers/performance-data/performance-data';
+import { Angular2TokenService } from 'angular2-token';
+import { ModalController } from 'ionic-angular';
+import { MockBackend } from '@angular/http/testing';
+import { Http, BaseRequestOptions, RequestMethod } from '@angular/http'
 
 describe("HomePage", () => {
     let homepage;
@@ -23,8 +28,20 @@ describe("HomePage", () => {
             { provide: SplashScreen, useFactory: () => SplashScreenMock.instance() },
             { provide: NavController, useFactory: () => NavControllerMock.instance() },
             PersonProvider,
-            CooperProvider
-        ]
+            CooperProvider,
+            PerformanceDataProvider,
+            Angular2TokenService,
+            ModalController,
+            BaseRequestOptions,
+            MockBackend,
+            {
+              provide: Http,
+              useFactory: (backend, defaultOptions) => {
+                return new Http(backend, defaultOptions)
+              },
+              deps: [MockBackend, BaseRequestOptions]
+            },
+            ]
         }).compileComponents();
     }));
 
@@ -53,15 +70,15 @@ describe("HomePage", () => {
     it("calculate function should call person provider doAssessment function", inject(
         [PersonProvider],
         person => {
-          homepage.user = { age: 25, gender: "female", distance: 2500 };
-          spyOn(person, "doAssessment").and.returnValue("Above average");
-      
-          homepage.calculate();
-      
-          expect(person.doAssessment).toHaveBeenCalled();
-          expect(person.doAssessment).toHaveBeenCalledWith(2500);
-          expect(person.age).toEqual(25);
-          expect(person.gender).toEqual("female");
+            homepage.user = { age: 25, gender: "female", distance: 2500 };
+            spyOn(person, "doAssessment").and.returnValue("Above average");
+
+            homepage.calculate();
+
+            expect(person.doAssessment).toHaveBeenCalled();
+            expect(person.doAssessment).toHaveBeenCalledWith(2500);
+            expect(person.age).toEqual(25);
+            expect(person.gender).toEqual("female");
         }
     ));
 });
