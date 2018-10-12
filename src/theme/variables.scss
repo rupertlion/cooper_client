@@ -34,17 +34,18 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    hsl(219, 70%, 20%),
+  primary:    #e66465,
   secondary:  hsl(323, 88%, 30%),
   danger:     #f53d3d,
-  light:      #e7e9eb,
-  dark:       #222,
-  awesome: (
-    base: hsl(19, 88%, 40%),
-    contrast: #ffffff
-  )
+  light:      #037cf5,
+  dark:       rgb(100, 10, 128),
+  white:      #ffffff
 );
 
+$app-background: linear-gradient(to bottom, color($colors, light) 0%, color($colors, dark) 100%);
+$card-background: linear-gradient(to bottom, color($colors, light) 0%, color($colors, white) 100%);
+$background-color: transparent;
+$toolbar-background: transparent;
 
 // App iOS Variables
 // --------------------------------------------------

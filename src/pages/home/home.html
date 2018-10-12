@@ -3,24 +3,24 @@
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Cooper Test</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     <ion-list>
-        <ion-item color="light">
+        <ion-item color="white">
             <ion-label floating color="primary">Distance</ion-label>
             <ion-input type="number" [(ngModel)]="user.distance"></ion-input>
         </ion-item>
-        <ion-item color="light">
+        <ion-item color="white">
             <ion-label color="primary">Gender</ion-label>
             <ion-select [(ngModel)]="user.gender" color="primary">
                 <ion-option value="female">Female</ion-option>
                 <ion-option value="male">Male</ion-option>
             </ion-select>
         </ion-item>
-        <ion-item color="light">
+        <ion-item color="white">
             <ion-label color="primary">Age:
                 <ion-badge *ngIf="user.age"> {{user.age}}</ion-badge>
             </ion-label>
@@ -34,11 +34,11 @@
     <button block ion-button (click)="calculate(user)">Calculate</button>
     <button block ion-button color="secondary" (click)="showResults()">All Results</button>
 
-    <ion-card *ngIf="person?.assessmentMessage">
+    <ion-card color="light" *ngIf="person?.assessmentMessage">
         <ion-card-header>
             Cooper Test Results
         </ion-card-header>
-        <ion-card-content color="secondary">
+        <ion-card-content color="white">
             Gender: {{person?.gender}}, Age: {{person?.age}} <br/> Result: {{person?.assessmentMessage}}
         </ion-card-content>
     </ion-card>
