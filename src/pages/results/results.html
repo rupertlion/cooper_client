@@ -22,7 +22,7 @@
 
   <div [ngSwitch]="view">
     <ion-list *ngSwitchCase="'data'">
-      <ion-card  *ngFor="let result of results">
+      <ion-card *ngFor="let result of results">
         <ion-card-header>
           {{ result.created_at | date:'medium' }}
         </ion-card-header>
