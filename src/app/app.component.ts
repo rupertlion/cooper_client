@@ -34,8 +34,8 @@ export class MyApp {
     this.initializeApp();
 
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Calculator', component: CalculatorPage },
+      { title: 'Cooper Test', component: HomePage },
+      { title: 'BMI Calculator', component: CalculatorPage },
       { title: 'Fun times', component: HappymessagePage },
     ];
 
