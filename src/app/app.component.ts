@@ -35,7 +35,7 @@ export class MyApp {
 
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Calcuator', component: CalculatorPage },
+      { title: 'Calculator', component: CalculatorPage },
       { title: 'Fun times', component: HappymessagePage },
     ];
 
