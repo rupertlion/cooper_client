@@ -8,6 +8,8 @@ import { AlertController, NavController, NavParams } from 'ionic-angular';
 
 export class HappymessagePage {
 
+  happymessagePage = HappymessagePage;
+
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams) {}
   
   showAlert() {

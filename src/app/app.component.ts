@@ -4,6 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import { CalculatorPage } from '../pages/calculator/calculator';
+import { HappymessagePage } from '../pages/happymessage/happymessage';
 import { Angular2TokenService } from '../../node_modules/angular2-token';
 
 @Component({
@@ -33,6 +35,8 @@ export class MyApp {
 
     this.pages = [
       { title: 'Home', component: HomePage },
+      { title: 'Calcuator', component: CalculatorPage },
+      { title: 'Fun times', component: HappymessagePage },
     ];
 
   }

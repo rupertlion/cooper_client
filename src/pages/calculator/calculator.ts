@@ -11,6 +11,8 @@ export class CalculatorPage {
   bmiValue: number;
   bmiMessage: string;
 
+  calculatorPage = CalculatorPage;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
