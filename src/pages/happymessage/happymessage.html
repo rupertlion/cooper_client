@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Fun Times</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+  <div padding>
+    <button block ion-button (click)="showAlert()">Make me happy!</button>
+  </div>
+  <div padding>
+    <button block ion-button (click)="showAlert2()">Make me sad...</button>
+  </div>
+  <div padding>
+    <button block ion-button (click)="showAlert3()">Make me indifferent!</button>
+  </div>
+  <div padding>
+    <button block ion-button (click)="showAlert4()">Make me bad...</button>
+  </div>
+</ion-content>
